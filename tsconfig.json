@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react",
+		"lib": ["dom", "dom.iterable", "ESNext"],
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"isolatedModules": false,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noEmitOnError": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "lib",
+		"removeComments": false,
+		"strictNullChecks": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES5"
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "**/*.stories.*", "**/*.test.*"]
+}

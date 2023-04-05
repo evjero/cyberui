@@ -1,0 +1,31 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint", "react-hooks"],
+	"extends": ["plugin:@typescript-eslint/recommended", "plugin:jest-dom/recommended", "plugin:react/recommended"],
+	"ignorePatterns": ["/src/__tests__/", "/src/**/*.stories.*", "/src/**/*.test.*"],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/explicit-member-accessibility": "off",
+		"@typescript-eslint/interface-name-prefix": "off",
+		"@typescript-eslint/explicit-function-return-type": "warn",
+		"@typescript-eslint/no-inferrable-types": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "off",
+		"react/display-name": "error",
+		"testing-library/await-async-query": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
+}
