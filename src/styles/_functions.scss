@@ -1,0 +1,7 @@
+/*! Functions */
+@use 'sass:math';
+
+/** Substrings the suffix of the number */
+@function stripUnit($value) {
+	@return math.div($value, ($value * 0 + 1));
+}

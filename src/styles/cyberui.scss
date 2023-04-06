@@ -1,0 +1,35 @@
+/*!
+	# CyberUI SCSS
+
+	This SCSS definition is meant to tackle a lot of the common styles throughout the UI, such as padding, borders, font families, etc.
+
+	One file to rule them all.
+	One file to find them.
+	One file to bring them all.
+	And in the sass way merge them.
+
+	JK just this one...
+*/
+/* Core */
+@use './functions';
+@use './size';
+// @use './typography';
+@use './normalize';
+@use './reset';
+/* Fonts */
+@use './fonts/fonts';
+
+:root.theme-transition,
+:root.theme-transition * {
+	transition: border-color 1000ms, color 1000ms, background-color 1000ms !important;
+	transition-delay: 0s !important;
+}
+.clickable {
+	cursor: pointer !important;
+}
+.disabled {
+	cursor: not-allowed !important;
+}
+:focus {
+	outline: none !important;
+}

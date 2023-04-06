@@ -1,0 +1,100 @@
+@use 'sass:list';
+@use './functions';
+
+$html-font-size: 16px; //Determines rem-basis
+
+/*
+	0.25em;	// 4px
+	0.5em;	// 8px
+	0.625em;// 10px
+	0.75em;	// 12px
+	0.875em;// 14px
+	1em;	// 16px
+	1.125em;// 18px
+	1.25em;	// 20px
+	1.5em;	// 24px
+	2em;	// 32px
+	2.25em;	// 36px
+	3em;	// 48px
+	4em;	// 64px
+	5em;	// 80px
+*/
+
+/** Converts px value to rem */
+@function rem($pxValue) {
+	@return #{calc(functions.stripUnit($pxValue) / functions.stripUnit($html-font-size))}rem;
+}
+/** Converts px value to em */
+@function em($pxValue) {
+	@return #{calc(functions.stripUnit($pxValue) / functions.stripUnit($html-font-size))}em;
+}
+
+/*
+	For making rules around @media queries for pixel-based screen resolutions
+*/
+$breakpoints: (
+	//1440p
+	max: 2560px,
+	//1080p
+	xl: 1920px,
+	//HD
+	lg: 1290px,
+	//Tablet
+	md: 810px,
+	//Mobile vertical
+	sm: 360px
+);
+
+/** Responds to screen sizes larger than `$breakpoint`. Parameter should be the key of the map defined in _size.scss:$breakpoints */
+@mixin RespondAbove($breakpoint) {
+	$bp: map-get($breakpoints, $breakpoint);
+	@media only screen and (min-width: $bp) {
+		@content;
+	}
+}
+/** Responds to screen sizes smaller than `$breakpoint`-1. Parameter should be the key of the map defined in _size.scss:$breakpoints */
+@mixin RespondBelow($breakpoint) {
+	$bp: map-get($breakpoints, $breakpoint);
+	@media only screen and (max-width: ($bp - 1)) {
+		@content;
+	}
+}
+
+/** Responds to screen sizes bettwen the lower and upper breakpoints. Parameters should be the keys of the map defined in _size.scss:$breakpoints, and lower should be a lesser value of upper */
+@mixin RespondBetween($breakpointLower, $breakpointUpper) {
+	$bpL: map-get($breakpoints, $breakpointLower);
+	$bpU: map-get($breakpoints, $breakpointUpper);
+	@media only screen and (min-width: $bpL) and (max-width: ($bpU - 1)) {
+		@content;
+	}
+}
+
+/** Syntactic sugar for responding to larger monitors */
+@mixin WideMonitor() {
+	@include RespondAbove(max) {
+		@content;
+	}
+}
+@mixin LargeMonitor() {
+	@include RespondAbove(xl) {
+		@content;
+	}
+}
+/** Syntactic sugar for responding to smaller monitors or larger tablets */
+@mixin SmallMonitor() {
+	@include RespondBetween(lg, xl) {
+		@content;
+	}
+}
+/** Syntactic sugar for responding to tablets; newer mobile devices may also apply */
+@mixin Tablet() {
+	@include RespondBetween(md, lg) {
+		@content;
+	}
+}
+/** Syntactic sugar for responding to smaller mobile devices */
+@mixin Mobile() {
+	@include RespondBelow(md) {
+		@content;
+	}
+}
