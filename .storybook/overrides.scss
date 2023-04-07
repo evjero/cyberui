@@ -8,7 +8,20 @@ div.story {
 		width: calc(90vw) !important;
 	}
 }
-.sb-show-main {
+:root,
+html,
+body,
+iframe {
+	background-color: #222425 !important;
+}
+html {
+	height: 100vh;
+	width: 100vw;
+}
+.sb-show-main,
+.sb-preparing-story.sb-wrapper,
+.sb-preparing-story,
+.sb-preparing-docs {
 	overflow: auto;
-	background-color: #202028 !important;
+	background-color: #222425 !important;
 }

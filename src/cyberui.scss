@@ -16,9 +16,10 @@
 @use './styles/typography';
 @use './styles/normalize';
 @use './styles/reset';
-
 /* Fonts */
 @use './fonts/fonts';
+/* Components */
+@use './components/button/button';
 
 /* Global */
 :root.theme-transition,

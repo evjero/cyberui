@@ -1,0 +1,11 @@
+@use '../../styles/typography';
+@use '../../styles/size';
+@use '../../styles/theme';
+
+button.cy {
+	@include typography.Body-01();
+	padding: 12px;
+	color: theme.get('primary');
+	background-color: theme.getTransparent('primary');
+	border: 1px solid theme.get('primary');
+}

@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import '../src/cyberui.scss';
 import './overrides.scss';
-import theme from './theme';
 
 const preview: Preview = {
 	parameters: {
@@ -14,7 +14,7 @@ const preview: Preview = {
 			}
 		},
 		docs: {
-			theme: theme()
+			theme: themes.dark
 		},
 		layout: 'fullscreen'
 	}
