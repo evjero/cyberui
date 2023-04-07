@@ -11,18 +11,24 @@
 	JK just this one...
 */
 /* Core */
-@use './functions';
-@use './size';
-// @use './typography';
-@use './normalize';
-@use './reset';
+@use './styles/functions';
+@use './styles/size';
+@use './styles/typography';
+@use './styles/normalize';
+@use './styles/reset';
+
 /* Fonts */
 @use './fonts/fonts';
 
+/* Global */
 :root.theme-transition,
 :root.theme-transition * {
 	transition: border-color 1000ms, color 1000ms, background-color 1000ms !important;
 	transition-delay: 0s !important;
+}
+:root {
+	font-family: 'Rajdhani', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: size.$html-font-size;
 }
 .clickable {
 	cursor: pointer !important;
