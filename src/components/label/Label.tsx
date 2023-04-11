@@ -2,12 +2,12 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
 
-export type ButtonProps = {
-	/** Main text */
+export type LabelProps = {
+	className?: string;
 	content?: string;
 };
 
-export function Button(props: ButtonProps): JSX.Element {
+export function Label(props: LabelProps): JSX.Element {
 	const classes = classNames(CSS_DEFAULT_CLASS);
-	return <button className={classes}>{props.content}</button>;
+	return <label className={classes}>{props.content}</label>;
 }

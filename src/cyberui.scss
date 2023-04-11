@@ -12,16 +12,22 @@
 */
 /* Core */
 @use './styles/functions';
-@use './styles/size';
-@use './styles/typography';
 @use './styles/normalize';
 @use './styles/reset';
+@use './styles/size';
+@use './styles/typography';
+@use './styles/util';
 /* Fonts */
 @use './fonts/fonts';
 /* Components */
 @use './components/button/button';
+@use './components/card/card';
+@use './components/flex/flex';
+@use './components/header/header';
+@use './components/label/label';
 
 /* Global */
+@import './styles/theme';
 :root.theme-transition,
 :root.theme-transition * {
 	transition: border-color 1000ms, color 1000ms, background-color 1000ms !important;
@@ -32,7 +38,7 @@
 	font-size: size.$html-font-size;
 }
 .clickable {
-	cursor: pointer !important;
+	@include util.clickable();
 }
 .disabled {
 	cursor: not-allowed !important;

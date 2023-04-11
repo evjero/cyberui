@@ -1,0 +1,45 @@
+@use '../../styles/typography';
+@use '../../styles/size';
+@use '../../styles/theme';
+
+h1.cy,
+h2.cy,
+h3.cy,
+h4.cy,
+h5.cy,
+h6.cy {
+	color: theme.get('text');
+	margin-bottom: 8px;
+
+	&.centered {
+		text-align: center;
+	}
+
+	&.fluid {
+		width: 100%;
+	}
+}
+h1,
+h1.cy {
+	@include typography.Header-01();
+}
+h2,
+h2.cy {
+	@include typography.Header-02();
+}
+h3,
+h3.cy {
+	@include typography.Header-03();
+}
+h4,
+h4.cy {
+	@include typography.Header-04();
+}
+h5,
+h5.cy {
+	@include typography.Header-05();
+}
+h6,
+h6.cy {
+	@include typography.Header-06();
+}

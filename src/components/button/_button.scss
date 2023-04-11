@@ -1,11 +1,27 @@
 @use '../../styles/typography';
 @use '../../styles/size';
 @use '../../styles/theme';
+@use '../../styles/util';
 
 button.cy {
+	@include util.no-select();
+	@include util.clickable();
+	@include util.clickable-transition();
 	@include typography.Body-01();
 	padding: 12px;
-	color: theme.get('primary');
+	color: theme.get('text');
 	background-color: theme.getTransparent('primary');
 	border: 1px solid theme.get('primary');
+}
+button.cy:hover,
+button.cy:focus:not(:active) {
+	color: theme.hover-state(theme.get('text'));
+	background-color: theme.hover-state(theme.getTransparent('primary'));
+	border-color: theme.hover-state(theme.get('primary'));
+}
+
+button.cy:active {
+	color: theme.active-state(theme.get('text'));
+	background-color: theme.active-state(theme.getTransparent('primary'));
+	border-color: theme.active-state(theme.get('primary'));
 }

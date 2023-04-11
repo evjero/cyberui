@@ -1,0 +1,8 @@
+@use '../../styles/typography';
+@use '../../styles/size';
+@use '../../styles/theme';
+
+label.cy {
+	@include typography.Label-01();
+	color: theme.get('text');
+}

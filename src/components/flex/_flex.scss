@@ -1,0 +1,13 @@
+@use '../../styles/util';
+
+div.cy.flex {
+	display: flex;
+	@include util.scale-transition();
+
+	&.fluid {
+		width: 100%;
+	}
+	&.inline {
+		display: inline-flex !important;
+	}
+}

@@ -31,3 +31,24 @@ $colors: (
 @function getTransparent($key, $per: 85%) {
 	@return scale-color(map-get($colors, $key), $alpha: -$per);
 }
+/** Returns hover color state for theme */
+@function hover-state($color) {
+	$lightnessValue: lightness($color);
+
+	@if ($lightnessValue >= 40%) {
+		@return scale-color($color, $lightness: -5%, $alpha: 10%);
+	} @else {
+		@return scale-color($color, $lightness: 5%, $alpha: 10%);
+	}
+}
+
+/** Returns active color state for theme */
+@function active-state($color) {
+	$lightnessValue: lightness($color);
+
+	@if ($lightnessValue >= 40%) {
+		@return scale-color($color, $lightness: -10%, $alpha: 20%);
+	} @else {
+		@return scale-color($color, $lightness: 10%, $alpha: 10%);
+	}
+}

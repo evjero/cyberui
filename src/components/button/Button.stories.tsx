@@ -7,7 +7,7 @@ const meta: Meta<typeof Button> = {
 	component: Button,
 	parameters: {
 		component: Button,
-		componentSubtitle: 'Buttons do something for everyone...',
+		componentSubtitle: 'Buttons allow for primary user actions, denoting what can be done',
 		controls: { hideNoControlsWarning: true }
 	},
 	tags: ['autodocs']

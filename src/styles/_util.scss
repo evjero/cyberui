@@ -1,0 +1,30 @@
+$hoverTiming: 100ms;
+$fadeTiming: 200ms;
+$moveTiming: 200ms;
+$scaleTiming: 200ms;
+$complexTiming: 400ms;
+
+@mixin no-select() {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@mixin clickable() {
+	cursor: pointer !important;
+}
+@mixin clickable-transition() {
+	-webkit-transition: background-color $hoverTiming ease, color $hoverTiming ease, border-color $hoverTiming ease, -webkit-box-shadow $hoverTiming ease,
+		box-shadow $hoverTiming ease, border-color $hoverTiming ease;
+	transition: background-color $hoverTiming ease, color $hoverTiming ease, border-color $hoverTiming ease, -webkit-box-shadow $hoverTiming ease, box-shadow $hoverTiming ease,
+		border-color $hoverTiming ease;
+}
+@mixin state-change-transition() {
+	-webkit-transition: background-color $fadeTiming ease, color $fadeTiming ease, border-color $fadeTiming ease, left $moveTiming ease;
+	transition: background-color $fadeTiming ease, color $fadeTiming ease, border-color $fadeTiming ease, left $moveTiming ease;
+}
+@mixin scale-transition() {
+	-webkit-transition: width $scaleTiming ease, height $scaleTiming ease, left $moveTiming ease, right $moveTiming ease, top $moveTiming ease, bottom $moveTiming ease;
+	transition: width $scaleTiming ease, height $scaleTiming ease, left $moveTiming ease, right $moveTiming ease, top $moveTiming ease, bottom $moveTiming ease;
+}

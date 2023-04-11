@@ -47,7 +47,7 @@
 	@include StandardTypography();
 	font-size: size.rem(16px);
 	line-height: size.rem(20px);
-	font-weight: 300;
+	letter-spacing: size.rem(0.16px);
 }
 @mixin Body-01 {
 	@include StandardTypography();
