@@ -3,7 +3,6 @@ import * as React from 'react';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
 
 export type LabelProps = {
-	className?: string;
 	content?: string;
 };
 

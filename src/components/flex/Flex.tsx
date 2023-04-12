@@ -5,12 +5,12 @@ import { classNamesAttr } from '../../utils/classNamesHelper';
 export type FlexProps = {
 	/** Content */
 	children?: React.ReactNode;
-	/** Additional classes. */
-	className?: string;
 	/** Flexed divs can take the width of their container, regardless of children preset; defaulted to `true` */
 	fluid?: boolean;
 	/** Optional height in pixels */
 	height?: React.CSSProperties['height'];
+	/** Optional width in pixels */
+	width?: React.CSSProperties['width'];
 	/** Overflow (scroll) behavior; defaulted to 'auto' */
 	overflow?: React.CSSProperties['overflow'];
 	/**
@@ -50,7 +50,7 @@ export type FlexProps = {
 	 */
 	alignItems?: React.CSSProperties['alignItems'];
 	/**
-	 * The white-space distribution (in pixels) between child elements; defaulted to `16`
+	 * The white-space distribution (in pixels) between child elements; defaulted to `0`
 	 *
 	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/gap
 	 */
@@ -66,8 +66,8 @@ export type FlexProps = {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex#values
  */
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref): JSX.Element => {
-	const { children, className, fluid, inline, ...styles } = props;
-	const classes = classNames('cy', 'flex', classNamesAttr(fluid, 'fluid'), classNamesAttr(inline, 'inline'), className);
+	const { children, fluid, inline, ...styles } = props;
+	const classes = classNames('cy', 'flex', classNamesAttr(fluid, 'fluid'), classNamesAttr(inline, 'inline'));
 	return (
 		<div className={classes} ref={ref} style={{ width: fluid == true || fluid == undefined ? '100%' : undefined, ...styles }}>
 			{children}
@@ -81,6 +81,6 @@ Flex.defaultProps = {
 	alignContent: 'normal',
 	justifyContent: 'space-between',
 	alignItems: 'normal',
-	gap: 16
+	gap: 0
 };
 Flex.displayName = 'Flex';

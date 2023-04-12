@@ -28,7 +28,7 @@ $colors: (
 @function get($key) {
 	@return map-get($colors, $key);
 }
-@function getTransparent($key, $per: 85%) {
+@function getTransparent($key, $per: 88%) {
 	@return scale-color(map-get($colors, $key), $alpha: -$per);
 }
 /** Returns hover color state for theme */
