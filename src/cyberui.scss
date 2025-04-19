@@ -11,6 +11,7 @@
 /* Components */
 @use './components/label/label';
 @use './components/toggle/toggle';
+@use './components/switch/switch';
 
 :root.theme-transition,
 :root.theme-transition * {

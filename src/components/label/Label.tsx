@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { JSX } from 'react';
-import { classNamesAttr } from '../../utils/classNamesHelper';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
 import { Size } from '../../utils/sizes';
 
@@ -52,12 +51,14 @@ export type LabelProps = {
 export function Label({ content, primary, secondary, tertiary, quarternary, size, uppercase, glow }: LabelProps): JSX.Element {
 	const classes = classNames(
 		CSS_DEFAULT_CLASS,
-		classNamesAttr(primary, 'primary'),
-		classNamesAttr(secondary, 'secondary'),
-		classNamesAttr(tertiary, 'tertiary'),
-		classNamesAttr(quarternary, 'quarternary'),
-		classNamesAttr(size, `size-${size}`),
-		classNamesAttr(glow, 'glow')
+		{
+			primary: primary,
+			secondary: secondary,
+			tertiary: tertiary,
+			quarternary: quarternary,
+			glow: glow
+		},
+		`size-${size ?? 'md'}`
 	);
 	let textContent = uppercase === false ? content : content?.toUpperCase();
 	return <label className={classes}>{textContent}</label>;

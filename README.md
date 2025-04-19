@@ -16,8 +16,8 @@ Components are self-documenting and may be imported as regular modules via _pack
 
 - [ ] Option UI Story
 - [x] Label
-- [ ] Toggle
-- [ ] Switch
+- [x] Toggle
+- [x] Switch
 - [ ] OptionDivider
 - [ ] Button
 - [ ] Trigger

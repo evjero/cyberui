@@ -1,0 +1,73 @@
+@use '../../styles/size';
+@use '../../styles/util';
+
+.switch.cy {
+	width: 500px;
+	height: 40px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	gap: size.rem(4px); // 4px gap between the choices
+
+	.switch-choice-clip-wrapper {
+		flex: 1;
+		width: calc(250px - 2px); // Adjusted width to account for the border
+		height: 40px;
+		padding: size.rem(1px); // Padding to simulate the border thickness
+		background-color: var(--color-disabled-text); // Acts as the "border" color
+		@include util.state-change-transition();
+
+		&.active {
+			background-color: var(--color-primary);
+		}
+
+		&:first-of-type {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - size.rem(16px)) 100%, size.rem(16px) 100%, 0 calc(100% - size.rem(16px))); // Clips the bottom-left corner
+
+			.switch-choice {
+				clip-path: inherit
+			}
+		}
+
+		&:last-of-type {
+			clip-path: polygon(0 0, 100% 0, 100% calc(100% - size.rem(16px)), calc(100% - size.rem(16px)) 100%, 0 100%); // Bottom-right 45-degree clip path
+
+			.switch-choice {
+				clip-path: inherit
+			}
+		}
+	}
+
+	.switch-choice {
+		display: block;
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		width: calc(100% - 2px); // Ensure it fits inside the wrapper
+		height: calc(100% - 2px); // Ensure it fits inside the wrapper
+		text-align: center;
+		// padding: size.rem(8px);
+		font-size: size.rem(16px);
+		font-weight: bold;
+		cursor: pointer;
+		position: relative;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - size.rem(16px))); // Default clip path for inactive state
+		background-color: var(--color-disabled);
+		color: var(--color-disabled-text);
+		// transition: background-color 0.3s 0.3s;
+		@include util.state-change-transition();
+		text-align: center;
+		padding-top: size.rem(8px);
+
+		&.active {
+			background-color: var(--color-primary);
+			color: var(--color-widget-background);
+		}
+
+
+
+		&:last-of-type {
+			clip-path: polygon(0 0, 100% 0, 100% calc(100% - size.rem(16px)), calc(100% - size.rem(16px)) 100%, 0 100%); // Bottom-right 45-degree clip path
+		}
+	}
+}
