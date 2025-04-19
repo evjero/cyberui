@@ -3,5 +3,5 @@
  * @returns `returnValue` or `undefined`
  */
 export const classNamesAttr = (prop: React.ReactNode, returnValue?: string | boolean): typeof returnValue => {
-	return prop !== undefined && prop !== null ? returnValue : undefined;
+	return !prop ? undefined : returnValue;
 };

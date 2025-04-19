@@ -1,8 +1,71 @@
 @use '../../styles/typography';
 @use '../../styles/size';
-@use '../../styles/theme';
+
+// Define text-shadow size variables
+$glow-small: 8px;
+$glow-large: 16px;
 
 label.cy {
 	@include typography.Label-01();
-	color: var(--color-text);
+	color: var(--color-title);
+
+	&.primary {
+		color: var(--color-primary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-primary), 0 0 $glow-large var(--color-primary);
+		}
+	}
+
+	&.secondary {
+		color: var(--color-secondary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-secondary), 0 0 $glow-large var(--color-secondary);
+		}
+	}
+
+	&.tertiary {
+		color: var(--color-tertiary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-tertiary), 0 0 $glow-large var(--color-tertiary);
+		}
+	}
+
+	&.quarternary {
+		color: var(--color-quarternary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-quarternary), 0 0 $glow-large var(--color-quarternary);
+		}
+	}
+
+	&.glow {
+		text-shadow: 0 0 $glow-small currentColor, 0 0 $glow-large currentColor;
+	}
+
+	&.size-xs {
+		font-size: size.rem(8px); // Extra small
+	}
+
+	&.size-sm {
+		font-size: size.rem(12px); // Small
+	}
+
+	&.size-md {
+		font-size: size.rem(16px); // Medium (default)
+	}
+
+	&.size-lg {
+		font-size: size.rem(24px); // Large
+	}
+
+	&.size-xl {
+		font-size: size.rem(32px); // Extra large
+	}
+
+	&.size-xxl {
+		font-size: size.rem(40px); // Extra Extra large
+	}
 }
