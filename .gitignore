@@ -4,6 +4,3 @@ node_modules
 # production
 .story
 lib
-
-# other
-_inspiration
