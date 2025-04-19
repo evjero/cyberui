@@ -10,7 +10,7 @@ These will also be the reproduction targets.
 
 ![](https://www.gameuidatabase.com/uploads/Cyberpunk-207712292020-013432-78442.jpg)
 
-## Loading Screen
+## Cutscene
 
 ![](https://www.gameuidatabase.com/uploads/Cyberpunk-207712292020-014341-62652.jpg)
 
