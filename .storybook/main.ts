@@ -9,9 +9,17 @@ const config: StorybookConfig = {
 	docs: {
 		autodocs: 'tag'
 	},
+	staticDirs: ['../lib/dist'],
 	typescript: {
 		reactDocgen: 'react-docgen'
-	}
+	},
+	previewHead: (head) => `
+		${head}
+		<link rel="preload" href="/fonts/rajdhani-v15-latin-300.woff" />
+		<link rel="preload" href="/fonts/rajdhani-v15-latin-600.woff" />
+		<link rel="preload" href="/fonts/rajdhani-v15-latin-700.woff" />
+		<link rel="preload" href="/fonts/rajdhani-v15-latin-regular.woff" />
+		<link rel="preload" href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+	`
 };
 export default config;
-

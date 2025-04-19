@@ -3,16 +3,14 @@
 @use './styles/normalize';
 @use './styles/reset';
 @use './styles/size';
+@use './styles/theme';
 @use './styles/typography';
 @use './styles/util';
 /* Fonts */
 @use './fonts/fonts';
 /* Components */
-@use './components/box/box';
-@use './components/button/button';
-@use './components/card/card';
-@use './components/header/header';
 @use './components/label/label';
+@use './components/toggle/toggle';
 
 :root.theme-transition,
 :root.theme-transition * {
