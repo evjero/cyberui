@@ -20,6 +20,13 @@ const config: StorybookConfig = {
 		<link rel="preload" href="/fonts/rajdhani-v15-latin-700.woff" />
 		<link rel="preload" href="/fonts/rajdhani-v15-latin-regular.woff" />
 		<link rel="preload" href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-	`
+	`,
+	viteFinal: async (config) => {
+		// Add support for `.es.js` extensions
+		config.resolve = config.resolve || {};
+		config.resolve.extensions = config.resolve.extensions || ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'];
+		config.resolve.extensions.push('.es.js');
+		return config;
+	}
 };
 export default config;

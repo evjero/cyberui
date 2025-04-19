@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import React, { JSX, useState } from 'react';
+import { Triangle } from 'react-feather';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
+import { Label } from '../label/Label';
 
 type ToggleProps = {
 	/**
@@ -32,18 +34,22 @@ export function Toggle({ choices, onChange }: ToggleProps): JSX.Element {
 	const classes = classNames(CSS_DEFAULT_CLASS, 'toggle');
 
 	return (
-		<div className={classes}>
-			<button className="toggle-arrow" onClick={handlePrevious} aria-label="Previous">
-				&lt;
-			</button>
-			<div className="toggle-choice">{choices[activeIndex]}</div>
-			<button className="toggle-arrow" onClick={handleNext} aria-label="Next">
-				&gt;
-			</button>
-			<div className="toggle-indicators">
-				{choices.map((_, index) => (
-					<span key={index} className={`toggle-indicator ${index === activeIndex ? 'active' : ''}`} />
-				))}
+		<div className="toggle-clip-wrapper">
+			<div className={classes}>
+				<button className="toggle-arrow" onClick={handlePrevious} aria-label="Previous">
+					<Triangle transform="rotate(270)" />
+				</button>
+				<div className="toggle-label" aria-live="polite">
+					<Label primary uppercase={false} size="lg" content={choices[activeIndex]} />
+					<div className="toggle-indicators">
+						{choices.map((_, index) => (
+							<span key={index} className={`toggle-indicator ${index === activeIndex ? 'active' : ''}`} />
+						))}
+					</div>
+				</div>
+				<button className="toggle-arrow" onClick={handleNext} aria-label="Next">
+					<Triangle transform="rotate(90)" />
+				</button>
 			</div>
 		</div>
 	);

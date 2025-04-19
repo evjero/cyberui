@@ -1,35 +1,57 @@
-.toggle.cy {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+@use '../../styles/size';
 
-	.toggle-arrow {
-		background: none;
-		border: none;
-		font-size: 1.5rem;
-		cursor: pointer;
-		padding: 0.5rem;
-	}
+.toggle-clip-wrapper {
+	width: 500px;
+	height: 40px;
+	position: relative;
+	background-color: var(--color-widget-border); // Acts as the "border" color
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - size.rem(16px)), calc(100% - size.rem(16px)) 100%, 0 100%);
+	padding: size.rem(1px); // Padding to simulate the border thickness
 
-	.toggle-choice {
-		font-size: 1.25rem;
-		margin: 0.5rem 0;
-	}
-
-	.toggle-indicators {
+	.toggle.cy {
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		width: calc(100% - 2px); // Ensure it fits inside the wrapper
+		height: calc(100% - 2px); // Ensure it fits inside the wrapper
 		display: flex;
-		gap: 0.25rem;
-		margin-top: 0.5rem;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: size.rem(4px) size.rem(32px);
+		background-color: var(--color-widget-background);
+		clip-path: inherit;
 
-		.toggle-indicator {
-			width: 8px;
-			height: 8px;
-			border-radius: 50%;
-			background-color: #ccc;
 
-			&.active {
-				background-color: #000;
+		.toggle-arrow {
+			margin-top: size.rem(4px);
+
+			svg {
+				width: size.rem(24px);
+				height: size.rem(24px);
+				stroke: var(--color-primary);
+			}
+
+			cursor: pointer;
+		}
+
+		div.toggle-label {
+			text-align: center;
+		}
+
+		.toggle-indicators {
+			display: flex;
+			gap: size.rem(4px);
+			margin-top: size.rem(8px);
+
+			.toggle-indicator {
+				width: 24px;
+				height: 2px;
+				background-color: var(--color-quarternary);
+
+				&.active {
+					background-color: var(--color-secondary);
+				}
 			}
 		}
 	}
