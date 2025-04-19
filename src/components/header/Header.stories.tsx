@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import * as React from 'react';
 
+import React from 'react';
 import { Header } from './Header';
 
 const meta: Meta<typeof Header> = {
@@ -36,4 +36,3 @@ export const Sizes = () => {
 		</React.Fragment>
 	);
 };
-

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React, { JSX } from 'react';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
 
 export type HeaderProps = {
@@ -13,5 +13,5 @@ export function Header(props: HeaderProps): JSX.Element {
 	const classes = classNames(CSS_DEFAULT_CLASS);
 
 	const header = (props.size as React.ElementType) ?? 'h1';
-	return React.createElement(header, { className: classes, children: props.children });
+	return React.createElement(header, { className: classes }, props.children);
 }

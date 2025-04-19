@@ -1,7 +1,15 @@
+@use "sass:meta";
+@use "sass:string";
+
 $colors: (
+	/* Core */
 	'background': #020202,
 	'text': #fd2c11,
+	'text-hover': #ff5a3d,
+	'text-active': #e02410,
 	'primary': #ff423b,
+	'primary-hover': #ff6b5c,
+	'primary-active': #d93c35,
 	'secondary': #30ffff,
 	'tertiary': #d7d8da,
 	'quaternary': #575757,
@@ -9,46 +17,28 @@ $colors: (
 	'ribbon': #c02b25,
 	'success': #0def6c,
 	'warning': #f6a521,
-	'breach':
-		linear-gradient(
-			0deg,
-			hsl(60deg 100% 62%) 0%,
-			hsl(60deg 99% 62%) 10%,
-			hsl(61deg 98% 61%) 20%,
-			hsl(61deg 97% 60%) 30%,
-			hsl(61deg 96% 59%) 40%,
-			hsl(62deg 95% 58%) 50%,
-			hsl(63deg 96% 57%) 60%,
-			hsl(64deg 97% 56%) 70%,
-			hsl(65deg 98% 55%) 80%,
-			hsl(66deg 99% 53%) 90%,
-			hsl(67deg 100% 50%) 100%
-		)
+	'breach': linear-gradient(0deg,
+		hsl(60deg 100% 62%) 0%,
+		hsl(60deg 99% 62%) 10%,
+		hsl(61deg 98% 61%) 20%,
+		hsl(61deg 97% 60%) 30%,
+		hsl(61deg 96% 59%) 40%,
+		hsl(62deg 95% 58%) 50%,
+		hsl(63deg 96% 57%) 60%,
+		hsl(64deg 97% 56%) 70%,
+		hsl(65deg 98% 55%) 80%,
+		hsl(66deg 99% 53%) 90%,
+		hsl(67deg 100% 50%) 100%)
 );
-@function get($key) {
-	@return map-get($colors, $key);
-}
-@function getTransparent($key, $per: 88%) {
-	@return scale-color(map-get($colors, $key), $alpha: -$per);
-}
-/** Returns hover color state for theme */
-@function hover-state($color) {
-	$lightnessValue: lightness($color);
 
-	@if ($lightnessValue >= 40%) {
-		@return scale-color($color, $lightness: -5%, $alpha: 10%);
-	} @else {
-		@return scale-color($color, $lightness: 5%, $alpha: 10%);
-	}
-}
+:root {
+	@each $name, $value in $colors {
+		@if meta.type-of($value)==string and string.index($value, 'linear-gradient') {
+			--color-#{$name}: #{$value}; // Handle gradients as strings
+		}
 
-/** Returns active color state for theme */
-@function active-state($color) {
-	$lightnessValue: lightness($color);
-
-	@if ($lightnessValue >= 40%) {
-		@return scale-color($color, $lightness: -10%, $alpha: 20%);
-	} @else {
-		@return scale-color($color, $lightness: 10%, $alpha: 10%);
+		@else {
+			--color-#{$name}: #{$value};
+		}
 	}
 }

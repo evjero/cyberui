@@ -4,5 +4,5 @@
 
 label.cy {
 	@include typography.Label-01();
-	color: theme.get('text');
+	color: var(--color-text);
 }

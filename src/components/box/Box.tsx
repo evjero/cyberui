@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React, { JSX } from 'react';
 import { CSS_DEFAULT_CLASS } from '../../utils/constants';
 
 export type BoxProps = {
