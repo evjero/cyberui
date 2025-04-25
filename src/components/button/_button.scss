@@ -2,26 +2,31 @@
 @use '../../styles/size';
 @use '../../styles/util';
 
-button.cy {
-	@include util.no-select();
-	@include util.clickable();
-	@include util.clickable-transition();
-	@include typography.Body-01();
-	padding: 12px;
-	color: var(--color-text);
-	background-color: var(--color-primary);
-	border: 1px solid var(--color-primary);
-}
+.button-clip-wrapper {
+	height: 60px;
+	position: relative;
+	background-color: var(--color-widget-border); // Acts as the "border" color
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - size.rem(16px)), calc(100% - size.rem(16px)) 100%, 0 100%);
+	padding: size.rem(1px); // Padding to simulate the border thickness
 
-button.cy:hover,
-button.cy:focus:not(:active) {
-	color: var(--color-text-hover);
-	background-color: var(--color-primary-hover);
-	border-color: var(--color-primary-hover);
-}
-
-button.cy:active {
-	color: var(--color-text-active);
-	background-color: var(--color-primary-active);
-	border-color: var(--color-primary-active);
+	button.cy {
+		@include util.no-select();
+		@include util.clickable();
+		@include util.clickable-transition();
+		@include typography.Body-01();
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		width: calc(100% - 2px); // Ensure it fits inside the wrapper
+		height: calc(100% - 2px); // Ensure it fits inside the wrapper
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: size.rem(4px) size.rem(32px);
+		background-color: var(--color-widget-background);
+		color: var(--color-primary);
+		clip-path: inherit;
+		font-size: size.rem(20px); // Large
+	}
 }

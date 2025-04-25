@@ -60,6 +60,6 @@ export function Label({ content, primary, secondary, tertiary, quarternary, size
 		},
 		`size-${size ?? 'md'}`
 	);
-	let textContent = uppercase === false ? content : content?.toUpperCase();
+	const textContent = uppercase === false ? content : content?.toUpperCase();
 	return <label className={classes}>{textContent}</label>;
 }

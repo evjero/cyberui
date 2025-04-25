@@ -10,8 +10,8 @@ const meta: Meta<typeof Header> = {
 		component: Header,
 		componentSubtitle: '',
 		controls: { hideNoControlsWarning: true }
-	},
-	tags: ['autodocs']
+	}
+	// tags: ['autodocs']
 };
 
 export default meta;
@@ -19,20 +19,44 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
 	args: {
-		children: 'Header',
+		content: 'Header',
 		size: 'h1'
 	}
 };
 
 export const Sizes = () => {
 	return (
-		<React.Fragment>
-			<Header size="h1">APPROX. ENHANCEMENT BOOSTERS</Header>
-			<Header size="h2">APPROX. ENHANCEMENT BOOSTERS</Header>
-			<Header size="h3">APPROX. ENHANCEMENT BOOSTERS</Header>
-			<Header size="h4">APPROX. ENHANCEMENT BOOSTERS</Header>
-			<Header size="h5">APPROX. ENHANCEMENT BOOSTERS</Header>
-			<Header size="h6">APPROX. ENHANCEMENT BOOSTERS</Header>
-		</React.Fragment>
+		<>
+			<Header size="h1" content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h2" content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h4" content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h5" content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h6" content="APPROX. ENHANCEMENT BOOSTERS" />
+		</>
+	);
+};
+
+export const Emphasis = () => {
+	return (
+		<>
+			<Header size="h3" primary content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" secondary content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" tertiary content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" quarternary content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" success content="APPROX. ENHANCEMENT BOOSTERS" />
+		</>
+	);
+};
+
+export const Glow = () => {
+	return (
+		<>
+			<Header size="h3" primary glow content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" secondary glow content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" tertiary glow content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" quarternary glow content="APPROX. ENHANCEMENT BOOSTERS" />
+			<Header size="h3" success glow content="APPROX. ENHANCEMENT BOOSTERS" />
+		</>
 	);
 };

@@ -9,7 +9,9 @@
 /* Fonts */
 @use './fonts/fonts';
 /* Components */
+@use './components/button/button';
 @use './components/divider/divider';
+@use './components/header/header';
 @use './components/label/label';
 @use './components/toggle/toggle';
 @use './components/switch/switch';

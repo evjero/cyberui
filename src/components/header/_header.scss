@@ -1,6 +1,9 @@
 @use '../../styles/typography';
 @use '../../styles/size';
-@use '../../styles/theme';
+
+// Define text-shadow size variables
+$glow-small: 8px;
+$glow-large: 16px;
 
 h1.cy,
 h2.cy,
@@ -8,15 +11,51 @@ h3.cy,
 h4.cy,
 h5.cy,
 h6.cy {
-	color: var(--color-text);
+	color: var(--color-title);
 	margin-bottom: 8px;
 
-	&.centered {
-		text-align: center;
+	&.primary {
+		color: var(--color-primary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-primary), 0 0 $glow-large var(--color-primary);
+		}
 	}
 
-	&.fluid {
-		width: 100%;
+	&.secondary {
+		color: var(--color-secondary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-secondary), 0 0 $glow-large var(--color-secondary);
+		}
+	}
+
+	&.tertiary {
+		color: var(--color-tertiary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-tertiary), 0 0 $glow-large var(--color-tertiary);
+		}
+	}
+
+	&.quarternary {
+		color: var(--color-quarternary);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-quarternary), 0 0 $glow-large var(--color-quarternary);
+		}
+	}
+
+	&.success {
+		color: var(--color-success);
+
+		&.glow {
+			text-shadow: 0 0 $glow-small var(--color-success), 0 0 $glow-large var(--color-success);
+		}
+	}
+
+	&.glow {
+		text-shadow: 0 0 $glow-small currentColor, 0 0 $glow-large currentColor;
 	}
 }
 

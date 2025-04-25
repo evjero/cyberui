@@ -1,9 +1,0 @@
-@use '../../styles/typography';
-@use '../../styles/size';
-
-div.cy.box {
-	padding: 8px 16px;
-	color: var(--color-text);
-	background-color: rgba(var(--color-primary), 0.88);
-	box-shadow: 0px 0px 0px 1px inset var(--color-primary);
-}

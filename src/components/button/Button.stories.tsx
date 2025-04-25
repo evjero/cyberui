@@ -9,8 +9,8 @@ const meta: Meta<typeof Button> = {
 		component: Button,
 		componentSubtitle: 'Buttons allow for primary user actions, denoting what can be done',
 		controls: { hideNoControlsWarning: true }
-	},
-	tags: ['autodocs']
+	}
+	// tags: ['autodocs']
 };
 
 export default meta;
@@ -18,7 +18,6 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
 	args: {
-		content: 'Button'
+		content: 'Defaults'
 	}
 };
-
