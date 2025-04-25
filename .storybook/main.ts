@@ -15,11 +15,11 @@ const config: StorybookConfig = {
 	},
 	previewHead: (head) => `
 		${head}
-		<link rel="preload" href="/fonts/rajdhani-v15-latin-300.woff" />
-		<link rel="preload" href="/fonts/rajdhani-v15-latin-600.woff" />
-		<link rel="preload" href="/fonts/rajdhani-v15-latin-700.woff" />
-		<link rel="preload" href="/fonts/rajdhani-v15-latin-regular.woff" />
-		<link rel="preload" href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+		<link href="/fonts/rajdhani-v15-latin-300.woff" />
+		<link href="/fonts/rajdhani-v15-latin-600.woff" />
+		<link href="/fonts/rajdhani-v15-latin-700.woff" />
+		<link href="/fonts/rajdhani-v15-latin-regular.woff" />
+		<link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 	`,
 	viteFinal: async (config) => {
 		// Add support for `.es.js` extensions
