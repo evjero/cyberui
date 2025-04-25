@@ -13,6 +13,8 @@
 @use './components/label/label';
 @use './components/toggle/toggle';
 @use './components/switch/switch';
+/* Views */
+@use './views/menu/menu';
 
 :root.theme-transition,
 :root.theme-transition * {
@@ -35,4 +37,43 @@
 
 :focus {
 	outline: none !important;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+	width: 12px;
+	/* Width of the scrollbar */
+	height: 12px;
+	/* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #888;
+	/* Color of the scrollbar thumb */
+	border-radius: 6px;
+	/* Rounded corners for the thumb */
+	border: 3px solid transparent;
+	/* Adds padding around the thumb */
+	background-clip: padding-box;
+	/* Ensures the border doesn't overlap */
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	/* Color of the scrollbar track */
+	border-radius: 6px;
+	/* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
+	/* Darker color on hover */
+}
+
+/* Firefox Scrollbar Styles */
+:root {
+	scrollbar-width: thin;
+	/* Thin scrollbar */
+	scrollbar-color: #888 var(--color-widget-background);
+	/* Thumb color and track color */
 }
