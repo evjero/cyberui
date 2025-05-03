@@ -1,15 +1,12 @@
 import React, { JSX } from 'react';
-import { Box } from '../components/box/Box';
-import { Header } from '../components/header/Header';
-import { Label } from '../components/label/Label';
 import { Gang } from '../types/gang';
 
 export type GangSummaryProps = {
 	gang: Gang;
 };
 
-export function GangSummary(props: GangSummaryProps): JSX.Element {
-	const { gang } = props;
+export function GangSummary(_props: GangSummaryProps): JSX.Element {
+	// const { gang } = props;
 	return (
 		<div
 			style={{
@@ -24,11 +21,11 @@ export function GangSummary(props: GangSummaryProps): JSX.Element {
 			}}
 		>
 			<div style={{ display: 'flex', flexDirection: 'row' }}>
-				<Box flex="0 1 auto">Protocol 6520-A44</Box>
+				{/* <Box flex="0 1 auto">Protocol 6520-A44</Box>
 				<Box flex="1 1 auto">
 					<Label content="NAME:" />
 					<Header size="h3">{gang.name}</Header>
-				</Box>
+				</Box> */}
 			</div>
 		</div>
 	);
